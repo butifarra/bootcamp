@@ -17,6 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+/* Esto de arriba es igual a esto:*/
+/* Route::view('/', 'welcome')->name('welcome'); */
 
 Route::get('/chirps', function () {
     return 'Welcome to tweets page';
