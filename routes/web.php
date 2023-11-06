@@ -20,18 +20,24 @@ Route::get('/', function () {
 /* Esto de arriba es igual a esto:*/
 /* Route::view('/', 'welcome')->name('welcome'); */
 
-Route::get('/chirps', function () {
+/* Route::get('/chirps', function () {
     return 'Welcome to tweets page';
-})->name('chirps.index');
+})->name('chirps.index'); LA MUEVO AL MIDDLEWARE AGRUPADO AUTH */
 
+/* Todo esto se cambia por lo que está en la primera ruta heredada del middleware auth
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware('auth')->name('dashboard'); */
 
-Route::middleware('auth')->group(function () {
+Route::middleware('auth')->group(function () { /*esto agrupa todas estas rutas bajo el mismo middleware*/
+    Route::view('/dashboard', 'dashboard')->name('dashboard');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::get('/chirps', function () {
+        return view('chirps.index');/*Acá chirps es la carpeta, el . entra en la carpeta*/
+    })->name('chirps.index');
 });
 
 require __DIR__ . '/auth.php';
