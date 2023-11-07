@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+use App\Models\Chirp;
 
 Route::get('/', function () {
     return view('welcome');
@@ -38,6 +39,14 @@ Route::middleware('auth')->group(function () { /*esto agrupa todas estas rutas b
     Route::get('/chirps', function () {
         return view('chirps.index');/*Acá chirps es la carpeta, el . entra en la carpeta*/
     })->name('chirps.index');
+    Route::post('/chirps', function () {
+        Chirp::create([
+            'message' => request('message'),
+            'user_id' => auth()->id(),
+
+        ]);
+        return to_route('chirps.index');
+    });
 });
 
 require __DIR__ . '/auth.php';
