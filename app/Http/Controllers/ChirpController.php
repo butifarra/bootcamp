@@ -12,7 +12,11 @@ class ChirpController extends Controller
      */
     public function index()
     {
-        return view('chirps.index');/*Acá chirps es la carpeta, el . entra en la carpeta*/
+        return view('chirps.index', [
+            /* 'chirps' => Chirp::OrderBy('created_at', 'desc')->get() esto se resume en lo de debajo*/
+            'chirps' => Chirp::with('user')->latest()->get()
+        ]);/*Acá chirps es la carpeta, el . entra en la carpeta. El segundo parámetro
+        estará disponible en el formulario, lleno*/
     }
 
     /**
