@@ -4,9 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Models\Chirp;
 use Illuminate\Http\Request;
+use biller\bcu\Cotizaciones;
 
 class ChirpController extends Controller
 {
+    public function dolar()
+    {
+        // Dólar interbancario para el último día de cierre
+        $dolar = Cotizaciones::obtener();
+        return view('dolar', ['dolar' => $dolar]);
+    }
+
     /**
      * Display a listing of the resource.
      */

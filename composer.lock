@@ -4,8 +4,54 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "08d8135d1b92531abf127d0d291ef8cd",
+    "content-hash": "ec03a654853a03b0f104abeeef242100",
     "packages": [
+        {
+            "name": "biller/bcu",
+            "version": "2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/biller/bcu.git",
+                "reference": "8216312c1e9cc75f69fc773e453ea65c51b887cf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/biller/bcu/zipball/8216312c1e9cc75f69fc773e453ea65c51b887cf",
+                "reference": "8216312c1e9cc75f69fc773e453ea65c51b887cf",
+                "shasum": ""
+            },
+            "require": {
+                "ext-soap": "*",
+                "php": "^7.4|^8.0"
+            },
+            "require-dev": {
+                "codeception/codeception": "^4.1",
+                "codeception/module-asserts": "^1.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "biller\\bcu\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Juan Sorondo",
+                    "homepage": "http://aws.amazon.com"
+                }
+            ],
+            "description": "Adaptador de WebServices del BCU para PHP",
+            "homepage": "http://www.biller.uy/",
+            "support": {
+                "issues": "https://github.com/biller/bcu/issues",
+                "source": "https://github.com/biller/bcu/tree/2.0.1"
+            },
+            "time": "2022-08-05T17:38:17+00:00"
+        },
         {
             "name": "brick/math",
             "version": "0.11.0",

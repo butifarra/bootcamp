@@ -19,6 +19,7 @@ use App\Models\Chirp;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/dolar', [ChirpController::class, 'dolar'])->name('dolar');
 /* Esto de arriba es igual a esto:*/
 /* Route::view('/', 'welcome')->name('welcome'); */
 
